@@ -122,7 +122,7 @@ void Battleship::placingShips() {
             this->map[x][y] = 'A';
             sum++;//підрахунок кораблі    
         }
-    }
+    }}
 /*int Battleship::placingShips() {
     bool setting_is_possible = true;
     int dir = 0;
