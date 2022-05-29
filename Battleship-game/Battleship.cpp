@@ -61,9 +61,68 @@ void Battleship::placingShips() {
         x = rand() % n;
         y = rand() % n;
         this->map[x][y] = 'A';
-        sum++;//підрахунок кораблів
+        sum++;//ГЇВіГ¤Г°Г ГµГіГ­Г®ГЄ ГЄГ®Г°Г ГЎГ«ВіГў
     }
 }
+void Battleship::placingShips() {
+    int mapX [20];
+    int mapY[20];
+    for (int i = 0; i < 1; i++)
+    {
+        x = rand() % n;
+        y = rand() % n;
+        this->map[x][y] = 'A';
+        this->map[x + 1][y] = 'A';
+        this->map[x + 2][y] = 'A';
+        this->map[x + 3][y] = 'A';
+        sum++;//РїС–РґСЂР°С…СѓРЅРѕРє РєРѕСЂР°Р±Р»С–РІ
+        mapX[i] = x;
+        mapY[i] = y;
+        mapY[i] = y - 1;
+        mapY[i] = y - 2;
+        mapY[i] = y - 3;
+
+    }
+    for (int i = 0; i < 2; i++)
+    {
+        x = rand() % n;
+        y = rand() % n;
+
+        if (mapX[i] != x and mapY[i] != y) {
+            this->map[x][y] = 'A';
+            this->map[x][y - 1] = 'A';
+            this->map[x][y - 2] = 'A';
+            sum++;//РїС–РґСЂР°С…СѓРЅРѕРє РєРѕСЂР°Р±Р»С–РІ
+            mapX[i] = x;
+            mapY[i] = y;
+            mapY[i] = y - 1;
+            mapY[i] = y - 2;
+        }
+    }
+    for (int i = 0; i < 3; i++)
+    {
+        x = rand() % n;
+        y = rand() % n;
+        if (mapX[i] != x and mapY[i] != y) {
+            this->map[x][y] = 'A';
+            this->map[x + 1][y] = 'A';
+            sum++;//РїС–РґСЂР°С…СѓРЅРѕРє РєРѕСЂР°Р±Р»С–РІ
+            mapX[i] = x;
+            mapX[i] = x+1;
+            mapY[i] = y;
+        }
+    }
+
+   
+    for (int i = 0; i < 4; i++)
+    {
+        x = rand() % n;
+        y = rand() % n;
+        if (mapX[i] != x and mapY[i] != y) {
+            this->map[x][y] = 'A';
+            sum++;//РїС–РґСЂР°С…СѓРЅРѕРє РєРѕСЂР°Р±Р»С–    
+        }
+    }
 /*int Battleship::placingShips() {
     bool setting_is_possible = true;
     int dir = 0;
@@ -169,7 +228,7 @@ Battleship::~Battleship() {
 }
 
 
-void Battleship::printMap() {// функція виводу грального поля
+void Battleship::printMap() {// ГґГіГ­ГЄГ¶ВіГї ГўГЁГўГ®Г¤Гі ГЈГ°Г Г«ГјГ­Г®ГЈГ® ГЇГ®Г«Гї
     cout << "   1 2 3 4 5 6 7 8 9 10" << endl;
     int y = 1;
     for (int i = 0; i < n; i++)
@@ -187,7 +246,7 @@ void Battleship::printMap() {// функція виводу грального поля
     }
 }
 
-void Battleship::printMapEnemy() {// функція виводу грального поля
+void Battleship::printMapEnemy() {// ГґГіГ­ГЄГ¶ВіГї ГўГЁГўГ®Г¤Гі ГЈГ°Г Г«ГјГ­Г®ГЈГ® ГЇГ®Г«Гї
     cout << "   1 2 3 4 5 6 7 8 9 10" << endl;
     int y = 1;
     for (int i = 0; i < n; i++)
