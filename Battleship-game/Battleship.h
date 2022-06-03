@@ -20,8 +20,6 @@ public:
 	void printMap();
 	void printMapEnemy();
 	void placingShips();
-	//int placingShips();
-   // int ship_rotate();
 	void hittingTarget();
 	void hittingTargetEnemy();
 	~Battleship();
