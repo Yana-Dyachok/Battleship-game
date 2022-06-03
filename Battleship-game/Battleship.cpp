@@ -63,7 +63,6 @@ void Battleship::hittingTarget() {
 }
 
 
-
 void Battleship::hittingTargetEnemy() {
     std::cout << "Enemy step:" << endl;
     this->x = rand() % n;
@@ -78,6 +77,7 @@ void Battleship::hittingTargetEnemy() {
         cout << "Enemy missed" << endl;
     }
 }
+
 
 void Battleship::placingShipsMyself() {
     char chose;
