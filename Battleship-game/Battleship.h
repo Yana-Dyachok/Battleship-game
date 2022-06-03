@@ -6,7 +6,7 @@ private:
 	int y;
 	char** map;
 	int n;
-	int sum, sum1;
+	int sum;
 public:
 	int getX() { return this->x; }
 	int getY() { return this->y; }
