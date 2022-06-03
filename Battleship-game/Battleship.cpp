@@ -1,4 +1,5 @@
 #include "Battleship.h"
+#include "Battelship.h"
 #include <iostream>
 #include <ctime>
 #include <conio.h>
@@ -47,7 +48,7 @@ void Battleship::hittingTarget() {
             cout << "Wrong coordinates, try again: ";
             cin >> this->x;
             cin >> this->y;
-        } while ((x > 10 or x < 1) or (y > 10 or y < 1));
+        } while ((this->x > 10 or this->x < 1) or (this->y > 10 or this->y < 1));
     }
     if (this->map[this->x - 1][this->y - 1] == 'A') {
         cout << "You hit the target" << endl;
@@ -77,6 +78,85 @@ void Battleship::hittingTargetEnemy() {
         cout << "Enemy missed" << endl;
     }
 }
+
+void Battleship::placingShipsMyself() {
+    char chose;
+    while (sum < 10) {
+        for (int i = 0; i < 1; i++)
+        {
+            cout << "Enter coordinates x and y for four-deck ship:" << endl;
+            cin >> this->x;
+            cin >> this->y;
+            cout << "Select a direction, enter 1 for vertical and 2 for horizontal::" << endl;
+            cin >> chose;
+            switch (chose) {
+            case '1':
+                this->map[this->x - 1][this->y - 1] = 'A';
+                this->map[this->x][this->y - 1] = 'A';
+                this->map[this->x + 1][this->y - 1] = 'A';
+                this->map[this->x + 2][this->y - 1] = 'A'; break;
+            case '2':
+                this->map[this->x - 1][this->y - 1] = 'A';
+                this->map[this->x - 1][this->y] = 'A';
+                this->map[this->x - 1][this->y + 1] = 'A';
+                this->map[this->x - 1][this->y + 2] = 'A'; break;
+            default: cout << "That was a bad direction please try again" << endl; continue;
+            }
+            sum++;//підрахунок кораблів
+        }
+        printMapEnemy();
+        for (int i = 0; i < 2; i++)
+        {
+           cout << "Enter coordinates x and y for three-deck ship:" << endl;
+            cin >> this->x;
+            cin >> this->y;
+            cout << "Select a direction, enter 1 for vertical and 2 for horizontal::" << endl;
+            cin >> chose;
+            switch (chose) {
+            case '1':
+                this->map[this->x - 1][this->y - 1] = 'A';
+                this->map[this->x][this->y - 1] = 'A';
+                this->map[this->x + 1][this->y - 1] = 'A'; break;
+            case '2':
+                this->map[this->x - 1][this->y - 1] = 'A';
+                this->map[this->x - 1][this->y] = 'A';
+                this->map[this->x - 1][this->y + 1] = 'A'; break;
+            default: cout << "That was a bad direction please try again" << endl; continue;
+            }
+            sum++;//підрахунок кораблів
+            printMapEnemy();
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            cout << "Enter coordinates x and y for two-deck ship:" << endl;
+            cin >> this->x;
+            cin >> this->y;
+            cout << "Select a direction, enter 1 for vertical and 2 for horizontal::" << endl;
+            cin >> chose;
+            switch (chose) {
+            case '1':
+                this->map[this->x - 1][this->y - 1] = 'A';
+                this->map[this->x][this->y - 1] = 'A'; break;
+            case '2':
+                this->map[this->x - 1][this->y - 1] = 'A';
+                this->map[this->x - 1][this->y] = 'A'; break;
+            default: cout << "That was a bad direction please try again" << endl; continue;
+            }
+            sum++;//підрахунок кораблів
+            printMapEnemy();
+        }
+            for (int i = 0; i < 4; i++)
+            {
+                cout << "Enter coordinates x and y for one-deck ship:" << endl;
+                cin >> this->x;
+                cin >> this->y;
+                this->map[this->x - 1][this->y - 1] = 'A';
+                sum++;//підрахунок кораблів
+                printMapEnemy();
+            }
+            system("cls");
+        }
+    }
 
 
 void Battleship::placingShips() {
@@ -114,7 +194,7 @@ void Battleship::placingShips() {
                 this->map[this->x + 1][this->y - 1] == 'A' and
                 this->map[this->x + 1][this->y - 2] == 'A' and
                 this->map[this->x + 1][this->y - 3] == 'A') {
-                break;
+                continue;
             }
             else {
                 this->map[this->x][this->y] = 'A';
@@ -143,7 +223,7 @@ void Battleship::placingShips() {
                 this->map[this->x + 2][this->y] == 'A' and
                 this->map[this->x + 2][this->y - 1] == 'A' and
                 this->map[this->x + 2][this->y + 1] == 'A') {
-                break;
+                continue;
             }
             else {
                 this->map[this->x][this->y] = 'A';
@@ -167,7 +247,7 @@ void Battleship::placingShips() {
                     this->map[this->x + 1][this->y] == 'A' and
                     this->map[this->x + 1][this->y + 1] == 'A' and
                     this->map[this->x + 1][this->y - 1] == 'A') {
-                    break;
+                    continue;
                 }
                 else {
                     this->map[this->x][this->y] = 'A';  sum++;//підрахунок кораблів
@@ -178,7 +258,7 @@ void Battleship::placingShips() {
             }
         }
     }
-  }
+    }
 
  
 Battleship::~Battleship() {
