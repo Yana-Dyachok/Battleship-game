@@ -5,6 +5,7 @@ private:
 	int x;
 	int y;
 	char** map;
+	char** mapE;
 	int n;
 	int sum;
 public:
