@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include "Battelship.h"
+#include "Battleship.h"
 #include <conio.h>
 using namespace std;
 int main()
