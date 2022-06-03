@@ -21,6 +21,7 @@ public:
 	void printMap();
 	void printMapEnemy();
 	void placingShips();
+	void placingShipsMyself();
 	void hittingTarget();
 	void hittingTargetEnemy();
 	~Battleship();
