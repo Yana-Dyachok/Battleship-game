@@ -1,11 +1,10 @@
 #include "Battleship.h"
-#include "Battelship.h"
 #include <iostream>
 #include <ctime>
 #include <conio.h>
 #include <Windows.h>
 using namespace std;
-Battleship::Battleship() {
+Battleship::Battleship() {//конструктор
     this->x = 0;
     this->y = 0;
     this->sum = 0;
@@ -258,24 +257,24 @@ void Battleship::placingShips() {
             }
         }
     }
-    }
+ }
 
  
-Battleship::~Battleship() {
+Battleship::~Battleship() {//деструктор 
     for (int i = 0; i < n; i++)
     {
-        delete[]this->map[i];
+        delete[]this->map[i];//видаляємо масив з динамічної
     }
     delete[]this->map;
     for (int i = 0; i < n; i++)
     {
-        delete[]this->mapE[i];
+        delete[]this->mapE[i];//видаляємо масив з динамічної
     }
     delete[]this->mapE;
 }
 
 
-void Battleship::printMap() {// функція виводу грального поля
+void Battleship::printMap() {// метод виводу грального поля для противника (комп'ютера)
     cout << "   1 2 3 4 5 6 7 8 9 10" << endl;
     int y = 1;
     for (int i = 0; i < n; i++)
@@ -294,7 +293,7 @@ void Battleship::printMap() {// функція виводу грального �
 }
 
 
-void Battleship::printMapEnemy() {// функція виводу грального поля
+void Battleship::printMapEnemy() {// метод виводу грального поля для гравця
     cout << "   1 2 3 4 5 6 7 8 9 10" << endl;
     int y = 1;
     for (int i = 0; i < n; i++)
