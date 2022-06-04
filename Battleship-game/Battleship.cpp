@@ -78,10 +78,10 @@ void Battleship::hittingTargetEnemy() {// метод для попадання �
 }
 
 
-void Battleship::placingShipsMyself() {
-    char chose;
+void Battleship::placingShipsMyself() {//метод самостійного розташування кораблів
+    char chose;//змінна вибору напрямку розташування
     while (sum < 10) {
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 1; i++)//розташування чотирьохпалубних кораблів
         {
             cout << "Enter coordinates x and y for four-deck ship:" << endl;
             cin >> this->x;
@@ -89,12 +89,12 @@ void Battleship::placingShipsMyself() {
             cout << "Select a direction, enter 1 for vertical and 2 for horizontal::" << endl;
             cin >> chose;
             switch (chose) {
-            case '1':
+            case '1'://вертикальний напрямок розташування
                 this->map[this->x - 1][this->y - 1] = 'A';
                 this->map[this->x][this->y - 1] = 'A';
                 this->map[this->x + 1][this->y - 1] = 'A';
                 this->map[this->x + 2][this->y - 1] = 'A'; break;
-            case '2':
+            case '2'://горизонтальний напрямок розташування
                 this->map[this->x - 1][this->y - 1] = 'A';
                 this->map[this->x - 1][this->y] = 'A';
                 this->map[this->x - 1][this->y + 1] = 'A';
@@ -104,7 +104,7 @@ void Battleship::placingShipsMyself() {
             sum++;//підрахунок кораблів
         }
         printMapEnemy();
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 2; i++)//розташування трьохпалубних кораблів
         {
            cout << "Enter coordinates x and y for three-deck ship:" << endl;
             cin >> this->x;
@@ -112,11 +112,11 @@ void Battleship::placingShipsMyself() {
             cout << "Select a direction, enter 1 for vertical and 2 for horizontal::" << endl;
             cin >> chose;
             switch (chose) {
-            case '1':
+            case '1'://вертикальний напрямок розташування
                 this->map[this->x - 1][this->y - 1] = 'A';
                 this->map[this->x][this->y - 1] = 'A';
                 this->map[this->x + 1][this->y - 1] = 'A'; break;
-            case '2':
+            case '2'://горизонтальний напрямок розташування
                 this->map[this->x - 1][this->y - 1] = 'A';
                 this->map[this->x - 1][this->y] = 'A';
                 this->map[this->x - 1][this->y + 1] = 'A'; break;
@@ -125,7 +125,7 @@ void Battleship::placingShipsMyself() {
             sum++;//підрахунок кораблів
             printMapEnemy();
         }
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)//розташування двохпалубних кораблів
         {
             cout << "Enter coordinates x and y for two-deck ship:" << endl;
             cin >> this->x;
@@ -133,10 +133,10 @@ void Battleship::placingShipsMyself() {
             cout << "Select a direction, enter 1 for vertical and 2 for horizontal::" << endl;
             cin >> chose;
             switch (chose) {
-            case '1':
+            case '1'://вертикальний напрямок розташування
                 this->map[this->x - 1][this->y - 1] = 'A';
                 this->map[this->x][this->y - 1] = 'A'; break;
-            case '2':
+            case '2'://горизонтальний напрямок розташування
                 this->map[this->x - 1][this->y - 1] = 'A';
                 this->map[this->x - 1][this->y] = 'A'; break;
             default: cout << "That was a bad direction please try again" << endl; continue;
@@ -144,7 +144,7 @@ void Battleship::placingShipsMyself() {
             sum++;//підрахунок кораблів
             printMapEnemy();
         }
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)//розташування однопалубних кораблів
             {
                 cout << "Enter coordinates x and y for one-deck ship:" << endl;
                 cin >> this->x;
@@ -158,7 +158,7 @@ void Battleship::placingShipsMyself() {
     }
 
 
-void Battleship::placingShips() {
+void Battleship::placingShips() {//рандомне розташування кораблів
     for (int i = 0; i < 1; i++)
     {
         do {
