@@ -38,7 +38,7 @@ Battleship::Battleship() {//конструктор
 }
 
 
-void Battleship::hittingTarget() {
+void Battleship::hittingTarget() {// метод для попадання в ціль гравцем
     std::cout << "Enter coordinates x and y:" << endl;
     cin >> this->x;
     cin >> this->y;
@@ -62,17 +62,17 @@ void Battleship::hittingTarget() {
 }
 
 
-void Battleship::hittingTargetEnemy() {
+void Battleship::hittingTargetEnemy() {// метод для попадання в ціль противником
     std::cout << "Enemy step:" << endl;
-    this->x = rand() % n;
+    this->x = rand() % n;//рандомне попадання в ціль
     this->y = rand() % n;
-    if (this->map[this->x][this->y] == 'A') {
+    if (this->map[this->x][this->y] == 'A') {// при попаданні в ціль 
         cout << "Enemy hit the target" << endl;
-        this->map[this->x][this->y] = '#';
+        this->map[this->x][this->y] = '#';//змінюється знак масиву на '#'
         sum--;
     }
     else {
-        this->map[this->x][this->y] = '*';
+        this->map[this->x][this->y] = '*';//змінюється знак масиву на '*' при непопаданні в ціль
         cout << "Enemy missed" << endl;
     }
 }
