@@ -80,7 +80,7 @@ void Battleship::hittingTargetEnemy() {// метод для попадання �
 
 void Battleship::placingShipsMyself() {//метод самостійного розташування кораблів
     char chose;//змінна вибору напрямку розташування
-    while (sum < 10) {
+    while (sum < 20) {
         for (int i = 0; i < 1; i++)//розташування чотирьохпалубних кораблів
         {
             cout << "Enter coordinates x and y for four-deck ship:" << endl;
@@ -101,7 +101,7 @@ void Battleship::placingShipsMyself() {//метод самостійного р�
                 this->map[this->x - 1][this->y + 2] = 'A'; break;
             default: cout << "That was a bad direction please try again" << endl; continue;
             }
-            sum++;//підрахунок кораблів
+            sum=4;//підрахунок кораблів
         }
         printMapEnemy();
         for (int i = 0; i < 2; i++)//розташування трьохпалубних кораблів
@@ -122,7 +122,7 @@ void Battleship::placingShipsMyself() {//метод самостійного р�
                 this->map[this->x - 1][this->y + 1] = 'A'; break;
             default: cout << "That was a bad direction please try again" << endl; continue;
             }
-            sum++;//підрахунок кораблів
+            sum++;sum++;sum++;//підрахунок кораблів
             printMapEnemy();
         }
         for (int i = 0; i < 3; i++)//розташування двохпалубних кораблів
@@ -141,7 +141,7 @@ void Battleship::placingShipsMyself() {//метод самостійного р�
                 this->map[this->x - 1][this->y] = 'A'; break;
             default: cout << "That was a bad direction please try again" << endl; continue;
             }
-            sum++;//підрахунок кораблів
+            sum++;sum++;//підрахунок кораблів
             printMapEnemy();
         }
             for (int i = 0; i < 4; i++)//розташування однопалубних кораблів
@@ -164,20 +164,20 @@ void Battleship::placingShips() {//рандомне розташування к�
         do {
             this->x = rand() % n;
             this->y = rand() % n;
-        } while ((this->x + 3 < 0) or (this->x + 3) > n);
+        } while ((this->x + 3 < 0) or (this->x + 3) > n);//умова за якої координати не виходять за межі поля
         this->map[this->x][this->y] = 'A';
         this->map[this->x + 1][this->y] = 'A';
         this->map[this->x + 2][this->y] = 'A';
         this->map[this->x + 3][this->y] = 'A';
-        sum++;//підрахунок кораблів
+        sum=4;//підрахунок кораблів
     }
-    while (sum < 3) {
+    while (sum < 10) {
         for (int i = 0; i < 2; i++)//розташування трьохпалубних кораблів
         {
             do {
                 this->x = rand() % n;
                 this->y = rand() % n;
-            } while ((this->y - 2) < 0 or (this->y - 2) > n);
+            } while ((this->y - 2) < 0 or (this->y - 2) > n);//умова за якої координати не виходять за межі поля
             if (this->map[this->x][this->y] == 'A' and
                 this->map[this->x][this->y - 1] == 'A' and
                 this->map[this->x][this->y - 2] == 'A' and
@@ -199,17 +199,17 @@ void Battleship::placingShips() {//рандомне розташування к�
                 this->map[this->x][this->y] = 'A';
                 this->map[this->x][this->y - 1] = 'A';
                 this->map[this->x][this->y - 2] = 'A';
-                sum++;//підрахунок кораблів
+                sum++;sum++;sum++;//підрахунок кораблів
             }
         }
     }
-    while (sum < 6) {
+    while (sum < 16) {
         for (int i = 0; i < 3; i++)//розташування двохпалубних кораблів
         {
             do {
                 this->x = rand() % n;
                 this->y = rand() % n;
-            } while ((this->x + 1) < 0 or (this->x + 1) > n);
+            } while ((this->x + 1) < 0 or (this->x + 1) > n);//умова за якої координати не виходять за межі поля
             if (this->map[this->x][this->y] == 'A' and
                 this->map[this->x][this->y - 1] == 'A' and
                 this->map[this->x][this->y + 1] == 'A' and
@@ -227,16 +227,16 @@ void Battleship::placingShips() {//рандомне розташування к�
             else {
                 this->map[this->x][this->y] = 'A';
                 this->map[this->x + 1][this->y] = 'A';
-                sum++;//підрахунок кораблів
+                sum++;sum++;//підрахунок кораблів
             }
         }
     }
-    while (sum < 10) {
+    while (sum < 20) {
         for (int i = 0; i < 4; i++)//розташування однопалубних кораблів
         {
             this->x = rand() % n;
             this->y = rand() % n;
-            if (this->x != 0 or this->x != n or this->y != 0 or this->y != n) {
+            if (this->x != 0 or this->x != n or this->y != 0 or this->y != n) {//умова за якої координати не виходять за межі поля
                 if (this->map[this->x][this->y] == 'A' and
                     this->map[this->x][this->y - 1] == 'A' and
                     this->map[this->x][this->y + 1] == 'A' and
