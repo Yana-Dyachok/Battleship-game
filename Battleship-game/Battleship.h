@@ -18,11 +18,11 @@ public:
 	void setN(int n) { this->n = n; }
 	void setSum(int sum) { this->sum = sum; }
 	Battleship();//конструктор
-	void printMap();//метод 
-	void printMapEnemy();
-	void placingShips();
-	void placingShipsMyself();
-	void hittingTarget();
-	void hittingTargetEnemy();
+	void printMap();// метод виводу грального поля для противника (комп'ютера)
+	void printMapEnemy();// метод виводу грального поля для гравця
+	void placingShips();//метод рандомного розташування кораблів
+	void placingShipsMyself();//метод самостійного розташування кораблів
+	void hittingTarget();// метод для попадання в ціль гравцем
+	void hittingTargetEnemy();// метод для попадання в ціль противником
 	~Battleship();//деструктор
 };
